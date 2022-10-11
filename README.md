@@ -37,12 +37,11 @@
 Познакомиться с программными средствами для организции передачи данных между инструментами google, Python и Unity.
 
 ## Задание 1
-### Написать программы Hellow World на Python и Unity.
+### Реализовать совместную работу и передачу данных в связке Python - Google-Sheets – Unity. 
 Ход работы:
-- Для Python в отчете привести скриншоты с демонстрацией сохранения документа google.
-colab на свой диск с запуском программы, выводящей сообщение Hellow World.
-![Снимок экрана (53)](https://user-images.githubusercontent.com/103362515/192768065-c0cc3eb7-4ef0-4014-b606-29a0e1a51dba.png)
-![Снимок экрана (54)](https://user-images.githubusercontent.com/103362515/192768259-539699cb-e1d2-4af4-90f2-d14b0ed94579.png)
+- В облачном сервисе google console подключить API для работы с google sheets и google drive.
+![Снимок экрана (77)](https://user-images.githubusercontent.com/103362515/195139567-bef0b2a6-693f-4952-bb05-a02f4255a246.png)
+![Снимок экрана (76)](https://user-images.githubusercontent.com/103362515/195139613-799a3ded-ebb3-4b7d-8bff-fe1b0e4c52cb.png)
 
 - Для Unity в отчетепривести скриншоты вывода сообщения Hellow World в консоль.
 ![Снимок экрана (55)](https://user-images.githubusercontent.com/103362515/192768743-66aaa671-5e34-4a6f-87fa-9461dedd55d3.png)
