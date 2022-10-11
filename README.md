@@ -116,23 +116,33 @@ while i <= len(mon):
         sh.sheet1.update(('C' + str(i)), str(tempInf))
         print(tempInf)
 ```
+![Снимок экрана (84)](https://user-images.githubusercontent.com/103362515/195164670-806c0ffc-7be2-4bb3-ae58-e36ca107ad9d.png)
+
 
 ## Задание 3
-### Изучить код на Python и ответить на вопросы:
+### Самостоятельно разработать сценарий воспроизведения звукового сопровождения в Unity в зависимости от изменения считанных данных в задании 2.
+Ход работы.
+```py
+if (dataSet["Mon_" + i.ToString()] <= 300 & statusStart == false & i != dataSet.Count)
+        {
+            StartCoroutine(PlaySelectAudioGood());
+            Debug.Log(dataSet["Mon_" + i.ToString()]);
+        }
 
-1. Должна ли величина loss стремиться к нулю при изменении исходных данных? Ответьте на вопрос, приведите пример выполнения кода, который подтверждает ваш ответ.
+        if (dataSet["Mon_" + i.ToString()] > 300 & dataSet["Mon_" + i.ToString()] < 1000 & statusStart == false & i != dataSet.Count)
+        {
+            StartCoroutine(PlaySelectAudioNormal());
+            Debug.Log(dataSet["Mon_" + i.ToString()]);
+        }
 
-Величина loss не стремится к нулю при изменении исходных данных.
+        if (dataSet["Mon_" + i.ToString()] >= 1000 & statusStart == false & i != dataSet.Count)
+        {
+            StartCoroutine(PlaySelectAudioBad());
+            Debug.Log(dataSet["Mon_" + i.ToString()]);
+        }
+```
 
-![Снимок экрана (69)](https://user-images.githubusercontent.com/103362515/192792518-711254f6-2a4b-4200-848b-ea652e663789.png)
-![Снимок экрана (70)](https://user-images.githubusercontent.com/103362515/192792553-348fc5c3-239f-4ddf-a79e-3e9139583154.png)
-
-2. Какова роль параметра Lr? Ответьте на вопрос, приведите пример выполнения кода, который подтверждает ваш ответ. В качестве эксперимента можете изменить значение параметра.
-
-В зависимости от параметра Lr меняется угол наклона графика и его направление, либо он растет, либо убывает.
-
-![Снимок экрана (71)](https://user-images.githubusercontent.com/103362515/192794183-a645cbbe-4d3d-42a8-840a-d94dfbcdc27c.png)
-![Снимок экрана (72)](https://user-images.githubusercontent.com/103362515/192794212-80179a9b-1bfc-4bd8-9718-56d8ba6ad8ec.png)
+![Снимок экрана (85)](https://user-images.githubusercontent.com/103362515/195168653-39cc00e2-cc9e-4ea4-98dc-f9f705c8956b.png)
 
 
 ## Выводы
