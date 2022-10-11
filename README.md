@@ -50,6 +50,12 @@
 ![Снимок экрана (79)](https://user-images.githubusercontent.com/103362515/195142784-8ff146e1-ac51-432a-8506-cd2b2dad33da.png)
 ![Снимок экрана (80)](https://user-images.githubusercontent.com/103362515/195142810-aa4af7eb-ba63-44c2-823f-e3b1c19bbda0.png)
 
+- Создать новый проект на Unity, который будет получать данные из google-таблицы, в которую были записаны данные в предыдущем пункте.
+
+![Снимок экрана (81)](https://user-images.githubusercontent.com/103362515/195143134-da65d7a7-289e-4c3e-9629-8ca64502b4f5.png)
+![Снимок экрана (83)](https://user-images.githubusercontent.com/103362515/195143419-e490eaad-a9d8-431d-ac80-47cb8a2e892a.png)
+![Снимок экрана (82)](https://user-images.githubusercontent.com/103362515/195143166-654dfea5-b2a5-47dc-8f52-c74072fb6a31.png)
+
 
 ## Задание 2
 ### В разделе "ход работы" пошагово выполнять каждый пункт с описанием и примером реализации задачи по теме лабораторной работы.
