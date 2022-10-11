@@ -58,38 +58,62 @@
 
 
 ## Задание 2
-### В разделе "ход работы" пошагово выполнять каждый пункт с описанием и примером реализации задачи по теме лабораторной работы.
-### Ход работы.
-1. Произвести подготовку данных для работы с алгоритмом линейной регрессии. 10 видов данных были установлены случайным образом, и данные находились в линейной зависимости. Данные преобразуются в формат массива, чтобы их можно было вычислить напрямую при использовании умножения и сложения.
-![Снимок экрана (56)](https://user-images.githubusercontent.com/103362515/192774939-d9470644-1393-4ee0-9c66-cf1e437bbcc9.png)
+### Реализовать запись в Google-таблицу набора данных, полученных с помощью линейной регрессии из лабораторной работы № 1. 
+ Ход работы.
+import numpy as np
+import gspread
 
-2. Определите связанные функции. Функция модели: определяет модель линейной регрессии wx + b. Функция потерь: функция потерь среднеквадратичной ошибки. Функция оптимизации: метод градиентного спуска для нахождения частных производных w и b.
-![Снимок экрана (57)](https://user-images.githubusercontent.com/103362515/192775742-253f912c-09db-4af9-90db-430255ec7bcb.png)
-3. Начать итерацию
-   
-   Шаг 1. Инициализация и модель итеративной оптимизации
-   
-![Снимок экрана (58)](https://user-images.githubusercontent.com/103362515/192776031-f41404ff-71b8-4a44-980c-7147f45da746.png)
+x = [3, 21, 22, 34, 54, 34, 55, 67, 89, 99]
+x = np.array(x)
+y = [2, 22, 24, 65, 79, 82, 55, 130, 150, 199]
+y = np.array(y)
 
-   Шаг 2. На всторой итерации отображаются значения переметров, значения потерь и эффекты визуализации после итерации
-   
-![Снимок экрана (60)](https://user-images.githubusercontent.com/103362515/192776311-ffffc2ad-c3bc-420b-a5b6-4c7f6ee7b2eb.png)
+def model(a, b, x):
+    return a * x + b
 
-   Шаг 3. Третья итерация показывает значения параметров, значения потерь и визуализацию после итерации
-   
-![Снимок экрана (61)](https://user-images.githubusercontent.com/103362515/192776603-df3cea32-2fd1-4482-a95f-1589274e4463.png)
 
-   Шаг 4. На четвертой итерации отображаются значения параметров, значения потерь и эффекты визуализации
-   
-![Снимок экрана (62)](https://user-images.githubusercontent.com/103362515/192776863-a63fb213-090e-41c4-9a77-08abadadc8c3.png)
+def loss_function(a, b, x, y):
+    num = len(x)
+    prediction = model(a, b, x)
+    return (0.5 / num) * (np.square(prediction - y)).sum()
 
-   Шаг 5. Пятая итерация показывает значение парметра, значение потерь и эффект визуализации после итерации
-   
-![Снимок экрана (63)](https://user-images.githubusercontent.com/103362515/192777191-85bc6cf4-2c95-41fe-b991-5cd5e40cb5ab.png)
+def optimize(a, b, x, y):
+    num = len(x)
+    prediction = model(a, b, x)
+    da = (1.0 / num) * ((prediction - y) * x).sum()
+    db = (1.0 / num) * ((prediction - y).sum())
+    a = a - Lr * da
+    b = b - Lr * db
+    return a, b
 
-   Шаг 6. 10000-я итерация, показывающая значения параметров, потери и визуализацию после итерации
-   
-![Снимок экрана (65)](https://user-images.githubusercontent.com/103362515/192777408-bf08b59c-c3af-4499-b80b-362ac1acd85e.png)
+def iterate(a, b, x, y, times):
+    for i in range(times):
+        a, b = optimize(a, b, x, y)
+    return a, b
+
+a = np.random.rand(1)
+b = np.random.rand(1)
+Lr = 0.000001
+
+gc = gspread.service_account(filename='unitydatascience-365017-3a71cb3a7da2.json')
+sh = gc.open("UnitySheets")
+price = np.random.randint(2000, 10000, 11)
+mon = list(range(1, 11))
+i = 0
+while i <= len(mon):
+    i += 1
+    if i == 0:
+        continue
+    else:
+        a, b = iterate(a, b, x, y, 100)
+        prediction = model(a, b, x)
+        loss = loss_function(a, b, x, y)
+        tempInf = str(loss)
+        tempInf = tempInf.replace('.', ',')
+        sh.sheet1.update(('A' + str(i)), str(i))
+        sh.sheet1.update(('B' + str(i)), str(price[i-1]))
+        sh.sheet1.update(('C' + str(i)), str(tempInf))
+        print(tempInf)
 
 
 ## Задание 3
