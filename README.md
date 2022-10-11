@@ -40,11 +40,15 @@
 ### Реализовать совместную работу и передачу данных в связке Python - Google-Sheets – Unity. 
 Ход работы:
 - В облачном сервисе google console подключить API для работы с google sheets и google drive.
+
 ![Снимок экрана (77)](https://user-images.githubusercontent.com/103362515/195139567-bef0b2a6-693f-4952-bb05-a02f4255a246.png)
 ![Снимок экрана (76)](https://user-images.githubusercontent.com/103362515/195139613-799a3ded-ebb3-4b7d-8bff-fe1b0e4c52cb.png)
 
-- Для Unity в отчетепривести скриншоты вывода сообщения Hellow World в консоль.
-![Снимок экрана (55)](https://user-images.githubusercontent.com/103362515/192768743-66aaa671-5e34-4a6f-87fa-9461dedd55d3.png)
+- Реализовать запись данных из скрипта на python в google-таблицу. Данные описывают изменение темпа инфляции на протяжении 11 отсчётных периодов, с учётом стоимости игрового объекта в каждый период.
+
+![Снимок экрана (78)](https://user-images.githubusercontent.com/103362515/195142763-093755d4-e56b-46f5-9672-e07645ffa891.png)
+![Снимок экрана (79)](https://user-images.githubusercontent.com/103362515/195142784-8ff146e1-ac51-432a-8506-cd2b2dad33da.png)
+![Снимок экрана (80)](https://user-images.githubusercontent.com/103362515/195142810-aa4af7eb-ba63-44c2-823f-e3b1c19bbda0.png)
 
 
 ## Задание 2
