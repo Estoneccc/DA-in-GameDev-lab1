@@ -60,8 +60,7 @@
 ## Задание 2
 ### Реализовать запись в Google-таблицу набора данных, полученных с помощью линейной регрессии из лабораторной работы № 1. 
  Ход работы.
-` 
-import numpy as np
+`import numpy as np
 import gspread
 
 x = [3, 21, 22, 34, 54, 34, 55, 67, 89, 99]
@@ -114,7 +113,7 @@ while i <= len(mon):
         sh.sheet1.update(('A' + str(i)), str(i))
         sh.sheet1.update(('B' + str(i)), str(price[i-1]))
         sh.sheet1.update(('C' + str(i)), str(tempInf))
-        print(tempInf)
+        print(tempInf)`
 
 
 ## Задание 3
