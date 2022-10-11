@@ -114,8 +114,8 @@ while i <= len(mon):
         sh.sheet1.update(('A' + str(i)), str(i))
         sh.sheet1.update(('B' + str(i)), str(price[i-1]))
         sh.sheet1.update(('C' + str(i)), str(tempInf))
-        print(tempInf)```
-
+        print(tempInf)
+```
 
 ## Задание 3
 ### Изучить код на Python и ответить на вопросы:
