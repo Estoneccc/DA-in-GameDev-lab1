@@ -44,7 +44,7 @@
 - Последовательно добавьте .json – файлы:
 - ml-agents-release_19 / com,unity.ml-agents / package.json
 - ml-agents-release_19 / com,unity.ml-agents.extensions / package.json
-- 
+
 ![Снимок экрана (86)](https://user-images.githubusercontent.com/103362515/198092096-a6076eeb-d91a-4b09-b378-db4c640e7be7.png)
 
 Если все сделано правильно, то во вкладке с компонентами (Components) внутри Unity вы увидите строку ML Agent.
