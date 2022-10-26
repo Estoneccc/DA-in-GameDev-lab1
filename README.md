@@ -61,7 +61,7 @@
 
 3. Создайте на сцене плоскость, куб и сферу. Создайте простой C# скрипт-файл и подключите его к сфере:
 - В скрипт-файл RollerAgent.cs добавьте код, опубликованный в материалах лабораторных работ
-```
+```c#
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
