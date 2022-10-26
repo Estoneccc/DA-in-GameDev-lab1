@@ -60,9 +60,6 @@
 ![Снимок экрана (89)](https://user-images.githubusercontent.com/103362515/198093153-8e0f73a3-0c37-4d00-a257-985525901845.png)
 
 3. Создайте на сцене плоскость, куб и сферу так, как показано на рисунке ниже. Создайте простой C# скрипт-файл и подключите его к сфере:
-
-![Снимок экрана (90)](https://user-images.githubusercontent.com/103362515/198094441-479cd5f6-df6f-4992-8093-e0ce09948146.png)
-
 - В скрипт-файл RollerAgent.cs добавьте код, опубликованный в материалах лабораторных работ
 ```c#
 using System.Collections;
@@ -122,6 +119,7 @@ public class RollerAgent : Agent
     }
 }
 ```
+![Снимок экрана (90)](https://user-images.githubusercontent.com/103362515/198094441-479cd5f6-df6f-4992-8093-e0ce09948146.png)
 
 - Объекту «сфера» добавить компоненты Rigidbody, Decision Requester, Behavior Parameters и настройте их так, как показано на рисунке ниже:
 
