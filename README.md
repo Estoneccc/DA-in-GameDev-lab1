@@ -59,6 +59,110 @@
 
 ![Снимок экрана (89)](https://user-images.githubusercontent.com/103362515/198093153-8e0f73a3-0c37-4d00-a257-985525901845.png)
 
+3. Создайте на сцене плоскость, куб и сферу так, как показано на рисунке ниже. Создайте простой C# скрипт-файл и подключите его к сфере:
+
+![Снимок экрана (90)](https://user-images.githubusercontent.com/103362515/198094441-479cd5f6-df6f-4992-8093-e0ce09948146.png)
+
+- В скрипт-файл RollerAgent.cs добавьте код, опубликованный в материалах лабораторных работ
+```c#
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Unity.MLAgents;
+using Unity.MLAgents.Sensors;
+using Unity.MLAgents.Actuators;
+
+public class RollerAgent : Agent
+{
+    Rigidbody rBody;
+    // Start is called before the first frame update
+    void Start()
+    {
+        rBody = GetComponent<Rigidbody>();
+    }
+
+    public Transform Target;
+    public override void OnEpisodeBegin()
+    {
+        if (this.transform.localPosition.y < 0)
+        {
+            this.rBody.angularVelocity = Vector3.zero;
+            this.rBody.velocity = Vector3.zero;
+            this.transform.localPosition = new Vector3(0, 0.5f, 0);
+        }
+
+        Target.localPosition = new Vector3(Random.value * 8 - 4, 0.5f, Random.value * 8 - 4);
+    }
+    public override void CollectObservations(VectorSensor sensor)
+    {
+        sensor.AddObservation(Target.localPosition);
+        sensor.AddObservation(this.transform.localPosition);
+        sensor.AddObservation(rBody.velocity.x);
+        sensor.AddObservation(rBody.velocity.z);
+    }
+    public float forceMultiplier = 10;
+    public override void OnActionReceived(ActionBuffers actionBuffers)
+    {
+        Vector3 controlSignal = Vector3.zero;
+        controlSignal.x = actionBuffers.ContinuousActions[0];
+        controlSignal.z = actionBuffers.ContinuousActions[1];
+        rBody.AddForce(controlSignal * forceMultiplier);
+
+        float distanceToTarget = Vector3.Distance(this.transform.localPosition, Target.localPosition);
+
+        if (distanceToTarget < 1.42f)
+        {
+            SetReward(1.0f);
+            EndEpisode();
+        }
+        else if (this.transform.localPosition.y < 0)
+        {
+            EndEpisode();
+        }
+    }
+}
+```
+
+- Объекту «сфера» добавить компоненты Rigidbody, Decision Requester, Behavior Parameters и настройте их так, как показано на рисунке ниже:
+
+![Снимок экрана (91)](https://user-images.githubusercontent.com/103362515/198094525-04438ae8-e5d2-4713-b3d2-1e1c621bbf27.png)
+
+4. В корень проекта добавьте файл конфигурации нейронной сети, доступный в папке с файлами проекта.
+```c#
+behaviors:
+  RollerBall:
+    trainer_type: ppo
+    hyperparameters:
+      batch_size: 10
+      buffer_size: 100
+      learning_rate: 3.0e-4
+      beta: 5.0e-4
+      epsilon: 0.2
+      lambd: 0.99
+      num_epoch: 3
+      learning_rate_schedule: linear
+    network_settings:
+      normalize: false
+      hidden_units: 128
+      num_layers: 2
+    reward_signals:
+      extrinsic:
+        gamma: 0.99
+        strength: 1.0
+    max_steps: 500000
+    time_horizon: 64
+    summary_freq: 10000
+```
+- Запустите работу ml-агента
+
+![Снимок экрана (93)](https://user-images.githubusercontent.com/103362515/198095337-e439fe07-e455-4f01-a779-13fdda2f58cf.png)
+
+- Вернитесь в проект Unity, запустите сцену, проверьте работу ML-Agent’a. Сделайте 3, 9, 27 копий модели «Плоскость-Сфера-Куб», запустите симуляцию сцены и наблюдайте за результатом обучения модели.
+
+![Снимок экрана (94)](https://user-images.githubusercontent.com/103362515/198095621-484763fa-5259-41c3-b4d4-a0de2b5e8f6c.png)
+![Снимок экрана (95)](https://user-images.githubusercontent.com/103362515/198095644-5742c00a-78ed-4d51-b296-a2a737615457.png)
+![Снимок экрана (96)](https://user-images.githubusercontent.com/103362515/198095661-531c72e2-855d-4b96-8cef-7d35edd15f27.png)
+
 
 ## Задание 2
 ### В разделе "ход работы" пошагово выполнять каждый пункт с описанием и примером реализации задачи по теме лабораторной работы.
