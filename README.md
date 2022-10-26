@@ -55,7 +55,7 @@
 - mlagents 0.28.0;
 - torch 1.7.1;
 
-![Снимок экрана (88)](https://user-images.githubusercontent.com/103362515/198093121-38ad6a4d-dedf-47e3-8f47-1f46e7e86ada.png)
+![Снимок экрана (88)](<img src="https://user-images.githubusercontent.com/103362515/198093121-38ad6a4d-dedf-47e3-8f47-1f46e7e86ada.png" width="100" height="790">)
 
 ![Снимок экрана (89)](https://user-images.githubusercontent.com/103362515/198093153-8e0f73a3-0c37-4d00-a257-985525901845.png)
 
