@@ -126,7 +126,7 @@ public class RollerAgent : Agent
 ![Снимок экрана (91)](https://user-images.githubusercontent.com/103362515/198094525-04438ae8-e5d2-4713-b3d2-1e1c621bbf27.png)
 
 4. В корень проекта добавьте файл конфигурации нейронной сети, доступный в папке с файлами проекта.
-```yaml
+```c#
 behaviors:
   RollerBall:
     trainer_type: ppo
