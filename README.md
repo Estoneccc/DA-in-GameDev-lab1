@@ -65,6 +65,11 @@
 
 ![image](https://user-images.githubusercontent.com/103362515/205036549-f2206d04-2340-4e1c-acd9-cf7e02269b35.png)
 
+2. График зависимости при операции AND:
+
+![image](https://user-images.githubusercontent.com/103362515/205037902-d1f9404d-2304-4a86-9eba-ccedab81b080.png)
+
+
 
 
 ## Задание 3
