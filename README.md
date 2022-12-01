@@ -69,6 +69,13 @@
 
 ![image](https://user-images.githubusercontent.com/103362515/205039033-70a8c43a-6a66-4a00-a2bb-8830170b43fc.png)
 
+3. График зависимости при операции NAND:
+
+![image](https://user-images.githubusercontent.com/103362515/205040012-ad78924f-ce22-438b-8f59-fba3fcb23565.png)
+
+4. График зависимости при операции XOR:
+
+![image](https://user-images.githubusercontent.com/103362515/205040577-3c0f3727-aa87-4e2a-8717-a3605d735b3a.png)
 
 
 ## Задание 3
