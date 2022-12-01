@@ -67,8 +67,7 @@
 
 2. График зависимости при операции AND:
 
-![image](https://user-images.githubusercontent.com/103362515/205038064-21e6780a-b10b-4c33-af57-8fcc6e07877a.png)
-
+![image](https://user-images.githubusercontent.com/103362515/205039033-70a8c43a-6a66-4a00-a2bb-8830170b43fc.png)
 
 
 
